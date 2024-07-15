@@ -1,13 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { useAuth } from "../store/auth";
+
+const URL = "http://localhost:5000/api/auth/login";
 
 export default function Login() {
   const [user, setUser] = useState({
-    username: "",
+    email: "",
     password: "",
   });
+  const navigate = useNavigate();
+
+  const { storeTokenInLS } = useAuth();
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -15,9 +21,35 @@ export default function Login() {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(user);
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        const res_data = await response.json();
+        console.log(res_data);
+        storeTokenInLS(res_data.token);
+        alert("login successful");
+        setUser({
+          email: "",
+          password: "",
+        });
+        navigate("/");
+      } else {
+        alert("Invalid email or password");
+        console.log("Invalid!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -30,14 +62,14 @@ export default function Login() {
                 <label className="input input-bordered flex items-center gap-2 mb-[10px]">
                   <FontAwesomeIcon className="text-slate-400" icon={faUser} />
                   <input
-                    type="text"
-                    name="username"
-                    id="username"
+                    type="email"
+                    name="email"
+                    id="email"
                     className="grow"
-                    placeholder="Username"
+                    placeholder="email"
                     required
                     autoComplete="off"
-                    value={user.username}
+                    value={user.email}
                     onChange={handleInput}
                   />
                 </label>

@@ -8,6 +8,9 @@ import {
   faKey,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { useAuth } from "../store/auth";
+
+const URL = "http://localhost:5000/api/auth/register";
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -16,7 +19,10 @@ export default function Register() {
     phone: "",
     password: "",
   });
+
   const navigate = useNavigate();
+
+  const { storeTokenInLS } = useAuth();
 
   const handleInput = (e) => {
     console.log(e);
@@ -34,7 +40,7 @@ export default function Register() {
     console.log(user);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/auth/register`, {
+      const response = await fetch(URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,6 +49,10 @@ export default function Register() {
       });
 
       if (response.ok) {
+        const res_data = await response.json();
+        console.log(res_data);
+        storeTokenInLS(res_data.token);
+
         setUser({
           username: "",
           email: "",
@@ -54,7 +64,7 @@ export default function Register() {
 
       console.log(response);
     } catch (error) {
-      console.log("register", error``);
+      console.log("register", error);
     }
   };
 
