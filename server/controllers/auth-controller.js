@@ -40,7 +40,7 @@ const register = async (req, res) => {
     });
   } catch (error) {
     // res.status(500).json("Internal error");
-    next(error)
+    next(error);
   }
 };
 
@@ -74,4 +74,15 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { home, register, login };
+// user Logic - for send user data
+
+const user = async (req, res) => {
+  try {
+    const userData = req.user;
+    return res.status(200).json({ userData });
+  } catch (error) {
+    console.log(`error from the user route ${error}`);
+  }
+};
+
+module.exports = { home, register, login, user };

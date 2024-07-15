@@ -11,6 +11,7 @@ import TopHeader from "../src/Components/Header/TopHeader";
 import Header from "../src/Components/Header/Header";
 import Footer from "../src/Components/Footer";
 import ErrorPage from "./pages/ErrorPage";
+import Logout from "./pages/Logout";
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/cart/:id" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="*" element={<ErrorPage />} />
           <Route

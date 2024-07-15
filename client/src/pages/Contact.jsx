@@ -3,6 +3,7 @@ import PhoneIcon from "../assets/phone-icon.png";
 import EmailIcon from "../assets/email-icon.png";
 import InstaIcon from "../assets/insta-icon.png";
 import { useState } from "react";
+import { useAuth } from "../store/auth";
 
 export default function Contact() {
   let quotes = [
@@ -37,6 +38,19 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  let { user } = useAuth();
+
+  const [userData, setUserData] = useState(true);
+
+  if (userData && user) {
+    setContact({
+      username: user.username,
+      email: user.email,
+      message: "",
+    });
+
+    setUserData(false);
+  }
 
   const handleInput = (e) => {
     console.log(e);
@@ -119,7 +133,7 @@ export default function Contact() {
               type="email"
               name="email"
               id="email"
-              placeholder="email"
+              placeholder="Email"
               required
               autoComplete="off"
               value={contact.email}
@@ -141,11 +155,7 @@ export default function Contact() {
                 className="textarea textarea-error"
               />
             </div>
-            <button
-              className="btn btn-error w-[70px] mb-[20px]"
-            >
-              Submit
-            </button>
+            <button className="btn btn-error w-[70px] mb-[20px]">Submit</button>
           </form>
         </div>
       </div>
