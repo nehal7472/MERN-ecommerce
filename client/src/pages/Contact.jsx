@@ -28,16 +28,19 @@ export default function Contact() {
   ];
 
   let [data, setData] = useState(quotes[0]);
+  const URL = "http://localhost:5000/api/form/contact?";
 
   let displayData = (v) => {
     setData(quotes[v.id]);
   };
 
-  let [contact, setContact] = useState({
+  const defaultContactFormData = {
     username: "",
     email: "",
     message: "",
-  });
+  };
+
+  let [contact, setContact] = useState(defaultContactFormData);
   let { user } = useAuth();
 
   const [userData, setUserData] = useState(true);
@@ -63,9 +66,28 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(contact);
+
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contact),
+      });
+      if (response.ok) {
+        setContact(defaultContactFormData);
+        const data = await response.json();
+        console.log(data);
+        alert("Message send successfully");
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Message not send");
+    }
   };
 
   return (

@@ -1,8 +1,8 @@
 // import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import HeaderImage from "../../assets/headerImage.jpg";
-import HeaderImage2 from "../../assets/HeaderImage2.jpg";
-import HeaderImage3 from "../../assets/HeaderImage3.jpg";
+import HeaderImage from "../../../public/image/misir_ali.jpg";
+import HeaderImage2 from "../../../public/image/Amazonia.jpg";
+import HeaderImage3 from "../../../public/image/Deyal.jpeg";
 import { useState } from "react";
 
 export default function HeaderBody() {
@@ -37,11 +37,11 @@ export default function HeaderBody() {
       <div className="container  flex justify-between items-center py-[100px]">
         <div className="flex flex-col gap-6 ">
           <h1 className="text-[70px] font-semibold text-white">{data.title}</h1>
-          <p className="w-[600px]">
-            {data.body}
-          </p>
+          <p className="w-[600px]">{data.body}</p>
           <div>
-            <button className="btn btn-outline btn-error"><Link to={'./product'}>Order now</Link></button>
+            <button className="btn btn-outline btn-error">
+              <Link to={"./product"}>Order now</Link>
+            </button>
           </div>
         </div>
         <div className="h-auto w-[200px]">

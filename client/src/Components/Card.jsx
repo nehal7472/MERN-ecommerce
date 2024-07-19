@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { BooksInfo } from "./Data/Booksinfo";
 
+
 export default function Card() {
   return (
     <>
@@ -25,7 +26,7 @@ export default function Card() {
                     <p>{v.description}</p>
                     <div className="card-actions">
                       <NavLink to={`/cart`}>
-                      <button className="btn btn-error">Add To Cart</button>
+                        <button className="btn btn-error">Add To Cart</button>
                       </NavLink>
                     </div>
                   </div>

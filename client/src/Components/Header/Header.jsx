@@ -10,7 +10,7 @@ import {
 import { useAuth } from "../../store/auth";
 
 export default function Header() {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, user } = useAuth();
   let [dropDown, SetDropDown] = useState(false);
 
   return (
@@ -67,16 +67,21 @@ export default function Header() {
                   </NavLink>
                 </li>
                 {isLoggedIn ? (
-                  <li className="hover:text-[#DA4A54] transition duration-300 ease-in-out">
-                    <NavLink
-                      className={(e) => {
-                        return e.isActive ? "text-[#DA4A54] text-[25px]" : "text-[25px]";
-                      }}
-                      to={"/logout"}
-                    >
-                      <FontAwesomeIcon icon={faRightFromBracket} />
-                    </NavLink>
-                  </li>
+                  <>
+                    <span className="text-[20px] cursor-default">{user.username}</span>
+                    <li className="hover:text-[#DA4A54] transition duration-300 ease-in-out">
+                      <NavLink
+                        className={(e) => {
+                          return e.isActive
+                            ? "text-[#DA4A54] text-[25px]"
+                            : "text-[25px]";
+                        }}
+                        to={"/logout"}
+                      >
+                        <FontAwesomeIcon icon={faRightFromBracket} />
+                      </NavLink>
+                    </li>
+                  </>
                 ) : (
                   <>
                     <div>

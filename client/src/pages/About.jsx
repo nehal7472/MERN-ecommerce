@@ -60,12 +60,12 @@ export default function About() {
       <div className="bg-[#111827]">
         <div className="container">
           <div className="flex justify-around items-center gap-[100px] pt-[150px]">
-            <div>
+            <div className="w-[550px]">
               <h2 className="text-[15px] text-blue-800 font-semibold">
                 OUR HISTORY
               </h2>
               <h1 className="text-[50px] text-white font-semibold">
-                Creative and renovate fashion trends
+                <span className="text-[#DA4A54]">Creative</span> and renovate fashion trends
               </h1>
               <p className="text-[25px]">
                 Collaboratively administrate empowered markets via plug-and-play
@@ -78,17 +78,17 @@ export default function About() {
               <img
                 src={AboutHistory}
                 alt="aboutImage"
-                className="max-w-[400px]"
+                className="max-w-[400px] shadow-xl"
               />
             </div>
           </div>
           <div className="flex flex-row-reverse justify-around items-center gap-[100px] py-[150px]">
-            <div>
+            <div className="w-[550px]">
               <h2 className="text-[15px] text-blue-800 font-semibold">
                 OUR VISION
               </h2>
               <h1 className="text-[50px] text-white font-semibold">
-                Creative and renovate fashion trends
+                <span className="text-[#DA4A54]">Creative</span> and renovate fashion trends
               </h1>
               <p className="text-[25px]">
                 Collaboratively administrate empowered markets via plug-and-play
