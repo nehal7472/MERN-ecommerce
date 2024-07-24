@@ -9,19 +9,19 @@ export default function HeaderBody() {
   let imageData = [
     {
       id: 0,
-      title: "Lost Boy",
+      title: "Michir Ali",
       picture: HeaderImage,
       body: "Lost Boy, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
       id: 1,
-      title: "Harry Potter",
+      title: "Amazonia",
       picture: HeaderImage2,
       body: "Lost Boy, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et sed do eiusmod tempor",
     },
     {
       id: 2,
-      title: "The Lord of the Rings",
+      title: "Deyal",
       picture: HeaderImage3,
       body: "Lost Boy, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut Lost Boy, consectetur adipiscing",
     },
