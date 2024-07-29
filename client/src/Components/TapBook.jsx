@@ -1,8 +1,10 @@
 import Heading from "./Heading";
-import { BooksInfo } from "./Data/Booksinfo";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../store/auth";
 
 export default function TapBook() {
+  const { services } = useAuth();
+
   let headingInfo = {
     author: "Best Books",
     heading: "Top Books",
@@ -22,7 +24,7 @@ export default function TapBook() {
             />
           </div>
           <div className="grid grid-cols-5 gap-4 justify-items-center">
-            {BooksInfo.map((v) => {
+            {services.map((v) => {
               for (let i = 0; i <= v.id; i++) {
                 if (v.id <= 5) {
                   return (

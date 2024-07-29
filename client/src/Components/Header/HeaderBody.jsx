@@ -33,8 +33,8 @@ export default function HeaderBody() {
   };
 
   return (
-    <div className="bg-[#030712] w-[100%] ">
-      <div className="container  flex justify-between items-center py-[100px]">
+    <div className="bg-[#030712] w-[100%]">
+      <div className="container  flex justify-between items-center py-[100px] ">
         <div className="flex flex-col gap-6 ">
           <h1 className="text-[70px] font-semibold text-white">{data.title}</h1>
           <p className="w-[600px]">{data.body}</p>

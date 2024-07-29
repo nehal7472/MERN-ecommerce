@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="bg-[#111827] text-white">
+      <div className="bg-[#111827] text-white w-full sticky top-[34px] z-[100] shadow-xl mb-[35px]">
         <div className="container py-2 sm:y-0 ">
           <div className="flex justify-between items-center ">
             <div className="flex justify-center items-center gap-4">
@@ -68,7 +68,9 @@ export default function Header() {
                 </li>
                 {isLoggedIn ? (
                   <>
-                    <span className="text-[20px] cursor-default">{user.username}</span>
+                    <span className="text-[20px] cursor-default">
+                      {user.username}
+                    </span>
                     <li className="hover:text-[#DA4A54] transition duration-300 ease-in-out">
                       <NavLink
                         className={(e) => {
@@ -96,7 +98,7 @@ export default function Header() {
                       <div
                         className={
                           dropDown
-                            ? "absolute bg-[#DA4A54] text-white px-5 py-3 top-[107px] right-[75px]"
+                            ? "absolute bg-[#DA4A54] text-white px-5 py-3 top-[72px] right-[45px] rounded-md"
                             : "hidden"
                         }
                       >

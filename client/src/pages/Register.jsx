@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 const URL = "http://localhost:5000/api/auth/register";
 
@@ -48,18 +49,23 @@ export default function Register() {
         body: JSON.stringify(user),
       });
 
-      if (response.ok) {
-        const res_data = await response.json();
-        console.log(res_data);
-        storeTokenInLS(res_data.token);
+      const res_data = await response.json();
+      console.log(res_data.message);
 
+      if (response.ok) {
+        storeTokenInLS(res_data.token);
         setUser({
           username: "",
           email: "",
           phone: "",
           password: "",
         });
-        navigate("/login");
+        toast.success("Registration successful");
+        navigate("/");
+      } else {
+        toast.error(
+          res_data.extraDetails ? res_data.extraDetails : res_data.message
+        );
       }
 
       console.log(response);

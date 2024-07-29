@@ -34,7 +34,7 @@ export default function SingleProduct() {
         </NavLink>
       </div>
       <div className="container">
-        <div className="w-[100%] flex justify-center items-center gap-[100px] py-[150px]">
+        <div className="w-[100%] flex justify-center items-center gap-[100px] py-[80px]">
           <div>
             <img src={product.image} alt="SingleImage" className="w-[200px]" />
           </div>

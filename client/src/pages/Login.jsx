@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 const URL = "http://localhost:5000/api/auth/login";
 
@@ -33,19 +34,19 @@ export default function Login() {
         body: JSON.stringify(user),
       });
 
+      const res_data = await response.json();
+
       if (response.ok) {
-        const res_data = await response.json();
         console.log(res_data);
         storeTokenInLS(res_data.token);
-        alert("login successful");
         setUser({
           email: "",
           password: "",
         });
+        toast.success("login successful");
         navigate("/");
       } else {
-        alert("Invalid email or password");
-        console.log("Invalid!");
+        toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
       }
     } catch (error) {
       console.log(error);

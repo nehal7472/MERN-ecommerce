@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { BooksInfo } from "./Data/Booksinfo";
-
+// import { BooksInfo } from "./Data/Booksinfo";
+import { useAuth } from "../store/auth";
 
 export default function Card() {
+  const { services } = useAuth();
   return (
     <>
       <div className="grid grid-cols-3 gap-3 justify-items-center">
-        {BooksInfo.map((v) => {
+        {services.map((v) => {
           for (let i = 0; i <= v.id; i++) {
             if (v.id <= 3) {
               return (

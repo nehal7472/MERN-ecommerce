@@ -4,6 +4,7 @@ import EmailIcon from "../assets/email-icon.png";
 import InstaIcon from "../assets/insta-icon.png";
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
 
 export default function Contact() {
   let quotes = [
@@ -82,11 +83,11 @@ export default function Contact() {
         setContact(defaultContactFormData);
         const data = await response.json();
         console.log(data);
-        alert("Message send successfully");
+        toast.success("message send successfully");
       }
     } catch (error) {
       console.log(error);
-      alert("Message not send");
+      toast.error("Message not send");
     }
   };
 

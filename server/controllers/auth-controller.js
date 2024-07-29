@@ -21,7 +21,7 @@ const register = async (req, res) => {
     const userExit = await User.findOne({ email });
 
     if (userExit) {
-      return res.status(400).json({ msg: "email already exits" });
+      return res.status(400).json({ message: "email already exits" });
     }
 
     // hash the password

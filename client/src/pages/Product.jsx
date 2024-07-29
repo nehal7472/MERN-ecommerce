@@ -5,7 +5,7 @@ import Sort from "../Components/Sort";
 export default function Product() {
   return (
     <>
-      <div className="container grid grid-cols-6 gap-4 my-[40px]">
+      <div className="container grid grid-cols-6 gap-4 my-[40px] pt-[25px]">
         <div className="col-start-2 col-end-3">
           <FilterSection />
         </div>
