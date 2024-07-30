@@ -1,4 +1,4 @@
-import ContactUs from "../assets/contact-cover.jpg";
+import ContactUs from "../assets/contact-cover.jpeg";
 import PhoneIcon from "../assets/phone-icon.png";
 import EmailIcon from "../assets/email-icon.png";
 import InstaIcon from "../assets/insta-icon.png";
@@ -97,7 +97,7 @@ export default function Contact() {
         className="bg-center bg-no-repeat bg-cover h-[550px] flex justify-center items-center flex-col px-[250px]"
         style={{ backgroundImage: `url(${ContactUs})` }}
       >
-        <div className="bg-[#DA4544] px-[15px] py-[10px] rounded-lg mb-[15px]">
+        <div className="bg-[#363A21] px-[15px] py-[10px] rounded-lg mb-[15px]">
           <h1 className="text-[25px] text-[white] font-semibold">
             {data.text}
           </h1>

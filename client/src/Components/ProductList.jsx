@@ -10,13 +10,13 @@ export default function ProductList() {
   return (
     <>
       {services.map((v, i) => (
-        <div key={i}>
+        <div key={i} className="w-[160px] h-[350px]">
           <NavLink to={`./singleproduct/${v.subTitle}`}>
             <div className="cursor-pointer">
               <img
                 src={v.image}
                 alt="topBooksImage"
-                className="w-[150px] h-[200px] rounded-md"
+                className="w-[150px] h-[210px] rounded-md"
               />
               <h1>{v.title}</h1>
               <h2>{v.subTitle}</h2>

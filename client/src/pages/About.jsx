@@ -1,5 +1,6 @@
-import AboutUs from "../assets/about-us.jpg";
-import AboutHistory from "../assets/library.jpg";
+import AboutUs from "../assets/about-us.jpeg";
+import AboutHistory from "../assets/about-histry.png";
+import AboutVision from "../assets/about-vision.png";
 import AboutDot from "../assets/about-dot.png";
 import { useState } from "react";
 
@@ -37,7 +38,7 @@ export default function About() {
         className="bg-center bg-no-repeat bg-cover h-[550px] flex justify-center items-center flex-col px-[250px]"
         style={{ backgroundImage: `url(${AboutUs})` }}
       >
-        <h1 className="text-[25px] text-[#DA4A54] font-semibold">
+        <h1 className="text-[25px] text-[#cf4f04] font-semibold">
           {data.text}
         </h1>
         <h2 className="text-[#fff] text-[20px] font-semibold text-start">
@@ -78,7 +79,7 @@ export default function About() {
               <img
                 src={AboutHistory}
                 alt="aboutImage"
-                className="max-w-[400px] shadow-xl"
+                className="max-w-[500px]"
               />
             </div>
           </div>
@@ -99,9 +100,9 @@ export default function About() {
             </div>
             <div>
               <img
-                src={AboutHistory}
+                src={AboutVision}
                 alt="aboutImage"
-                className="max-w-[400px]"
+                className="max-w-[300px]"
               />
             </div>
           </div>
