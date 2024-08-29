@@ -11,17 +11,23 @@ export default function ErrorPage() {
           <h2 className="text-[75px] text-[#DA4A54] font-bold">404</h2>
           <h4 className="text-2xl">
             Sorry
-            <span className="text-[#DA4A54] text-[30px] font-extrabold">
-              !
-            </span>{" "}
-            Page noy found
+            <span className="text-[#DA4A54] text-[30px] font-extrabold">!</span>
+            Page not found
           </h4>
           <div className="w-[320px]">
             <img src={ErrorImage} alt="ErrorImage" />
           </div>
           <div className="flex gap-[30px] text-[15px] ">
-            <Link to={"/"}> <FontAwesomeIcon className="text-[40px] text-[#DA4A54]" icon={faLeftLong} /></Link>
-            <Link to={"/contact"}> <button className="btn btn-neutral">Report problem</button></Link>
+            <Link to={"/"}>
+              <FontAwesomeIcon
+                className="text-[40px] text-[#DA4A54]"
+                icon={faLeftLong}
+              />
+            </Link>
+            <Link to={"/contact"}>
+              {" "}
+              <button className="btn btn-neutral">Report problem</button>
+            </Link>
           </div>
         </div>
       </div>

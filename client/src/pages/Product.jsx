@@ -1,4 +1,5 @@
 import FilterSection from "../Components/FilterSection";
+import Footer from "../Components/Footer";
 import ProductList from "../Components/ProductList";
 import Sort from "../Components/Sort";
 
@@ -18,6 +19,7 @@ export default function Product() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

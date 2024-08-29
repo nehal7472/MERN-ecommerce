@@ -3,6 +3,7 @@ import AboutHistory from "../assets/about-histry.png";
 import AboutVision from "../assets/about-vision.png";
 import AboutDot from "../assets/about-dot.png";
 import { useState } from "react";
+import Footer from "../Components/Footer";
 
 export default function About() {
   let quotes = [
@@ -108,6 +109,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

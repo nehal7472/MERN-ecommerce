@@ -5,6 +5,7 @@ import InstaIcon from "../assets/insta-icon.png";
 import { useState } from "react";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+import Footer from "../Components/Footer";
 
 export default function Contact() {
   let quotes = [
@@ -182,6 +183,7 @@ export default function Contact() {
           </form>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

@@ -9,9 +9,12 @@ import Cart from "./pages/Cart";
 import Product from "./pages/Product";
 import TopHeader from "../src/Components/Header/TopHeader";
 import Header from "../src/Components/Header/Header";
-import Footer from "../src/Components/Footer";
 import ErrorPage from "./pages/ErrorPage";
 import Logout from "./pages/Logout";
+import Admin from "./Components/layouts/Admin";
+import AdminUsers from "./pages/AdminUsers";
+import AdminContacts from "./pages/AdminContacts";
+import AdminServices from "./pages/AdminServices";
 
 export default function App() {
   return (
@@ -35,8 +38,12 @@ export default function App() {
             path="/product/singleproduct/:id"
             element={<SingleProduct />}
           />
+          <Route path="/admin" element={<Admin />}>
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="contacts" element={<AdminContacts />} />
+            <Route path="services" element={<AdminServices />} />
+          </Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
     </>
   );

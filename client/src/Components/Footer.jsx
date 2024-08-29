@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <>
       <div className="bg-[#030712] ">
-        <div className="container border-b-2 py-[40px] flex justify-between  gap-[55px]">
+        <div className="container py-[40px] flex justify-between  gap-[55px]">
           <div className="w-[400px] flex flex-col gap-4">
             <h1 className="text-[30px] text-white font-semibold">
               Books Store
@@ -104,6 +104,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+        <hr />
         <div className="text-center py-[30px]">
           <h1>
             Copyright © 2024. All rights reserved || Thanks for visit us ❤️
