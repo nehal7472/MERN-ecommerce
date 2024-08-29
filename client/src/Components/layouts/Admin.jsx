@@ -31,7 +31,7 @@ export default function Admin() {
                 to={"/admin/contacts"}
               >
                 <FontAwesomeIcon icon={faMessage} />
-                 Contacts
+                Contacts
               </NavLink>
             </li>
             <li className="hover:text-[#DA4A54] transition duration-300 ease-in-out">
@@ -41,7 +41,7 @@ export default function Admin() {
                 }}
                 to={"/admin/services"}
               >
-                <FontAwesomeIcon icon={faDumpster} />  Services
+                <FontAwesomeIcon icon={faDumpster} /> Services
               </NavLink>
             </li>
             <li className="hover:text-[#DA4A54] transition duration-300 ease-in-out">

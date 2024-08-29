@@ -15,6 +15,7 @@ import Admin from "./Components/layouts/Admin";
 import AdminUsers from "./pages/AdminUsers";
 import AdminContacts from "./pages/AdminContacts";
 import AdminServices from "./pages/AdminServices";
+import AdminUpdate from "./pages/AdminUpdate";
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
             <Route path="users" element={<AdminUsers />} />
             <Route path="contacts" element={<AdminContacts />} />
             <Route path="services" element={<AdminServices />} />
+            <Route path="users/:id/edit" element={<AdminUpdate />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../store/auth";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export default function AdminUsers() {
   const [users, setUsers] = useState([]);
@@ -37,6 +39,7 @@ export default function AdminUsers() {
 
       if (response.ok) {
         getAllUserData();
+        toast.error("User deleted!");
       }
     } catch (error) {
       console.log(error);
@@ -48,11 +51,11 @@ export default function AdminUsers() {
   }, []);
 
   return (
-    <div className="w-[100%] relative ">
-      <div className="overflow-x-auto flex flex-col justify-center items-center  h-screen scroll-m-2">
-        <h1>Admin Users Data</h1>
+    <div className="w-[100%] relative">
+      <div className="overflow-x-auto flex flex-col items-center  h-screen scroll-m-2">
+        <h1 className="text-[30px] mb-[15px]">Admin Users Data</h1>
         <div>
-          <table className="table table-zebra">
+          <table className="table table-zebra ">
             <thead>
               <tr className="">
                 <th>Name</th>
@@ -71,7 +74,7 @@ export default function AdminUsers() {
                     <th>{item.phone}</th>
                     <th>
                       <button className="btn btn-outline btn-info text-[12px]">
-                        Edit
+                        <Link to={`/admin/users/${item._id}/edit`}>Edit</Link>
                       </button>
                     </th>
                     <th>

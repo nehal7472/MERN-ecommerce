@@ -14,7 +14,6 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-
 const getUserById = async (req, res) => {
   try {
     const id = req.params.id;
@@ -24,7 +23,6 @@ const getUserById = async (req, res) => {
     next(error);
   }
 };
-
 
 const updateUserById = async (req, res) => {
   try {
@@ -42,7 +40,6 @@ const updateUserById = async (req, res) => {
     next(error);
   }
 };
-
 
 const deleteUserById = async (req, res) => {
   try {
@@ -66,8 +63,6 @@ const getAllContacts = async (req, res) => {
     next(error);
   }
 };
-
-
 
 const deleteContactById = async (req, res) => {
   try {
