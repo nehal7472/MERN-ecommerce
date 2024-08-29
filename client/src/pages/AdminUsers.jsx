@@ -21,6 +21,28 @@ export default function AdminUsers() {
     }
   };
 
+  const deleteUser = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/admin/users/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(`user after delete: ${data}`);
+
+      if (response.ok) {
+        getAllUserData();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getAllUserData();
   }, []);
@@ -53,7 +75,10 @@ export default function AdminUsers() {
                       </button>
                     </th>
                     <th>
-                      <button className="btn btn-outline btn-error text-[12px]">
+                      <button
+                        onClick={() => deleteUser(item._id)}
+                        className="btn btn-outline btn-error text-[12px]"
+                      >
                         Delete
                       </button>
                     </th>
