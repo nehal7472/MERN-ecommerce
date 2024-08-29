@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Navigate, NavLink, Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -6,8 +6,19 @@ import {
   faDumpster,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../../store/auth";
 
 export default function Admin() {
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <h1>Loading ...</h1>;
+  }
+
+  if (!user.isAdmin) {
+    return <Navigate to={"/"} />;
+  }
+
   return (
     <>
       <div className="border-t-2 border-neutral-500 w-full z-[100]">
