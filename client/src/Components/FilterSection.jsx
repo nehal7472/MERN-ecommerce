@@ -1,10 +1,10 @@
-import { BooksInfo } from "./Data/Booksinfo";
+import { useAuth } from "../store/auth";
 
 export default function FilterSection() {
-  const getArr = BooksInfo.map((value) => value.genre);
-  console.log(getArr);
+  const { services } = useAuth();
+  // const getArr = services.map((value) => value.genre);
 
-  const getData = BooksInfo.map((value) => {
+  const getData = services.map((value) => {
     return (
       <li
         key={value.id}
