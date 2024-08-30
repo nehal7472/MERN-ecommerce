@@ -2,15 +2,18 @@ import { useAuth } from "../store/auth";
 
 export default function FilterSection() {
   const { services } = useAuth();
-  // const getArr = services.map((value) => value.genre);
+  const getArr = services.map((value) => value.genre);
+  const newArr = [...new Set(getArr)];
+  console.log(newArr);
+  
 
-  const getData = services.map((value) => {
+  const getData = newArr.map((value, index) => {
     return (
       <li
-        key={value.id}
+        key={index}
         className="cursor-pointer hover:text-[#DA4A54] transition duration-400"
       >
-        {value.genre}
+        {value}
       </li>
     );
   });
