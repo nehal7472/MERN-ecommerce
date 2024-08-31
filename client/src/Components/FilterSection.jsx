@@ -1,15 +1,21 @@
+/* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import { useAuth } from "../store/auth";
 
-export default function FilterSection() {
+export default function FilterSection({ setCatName }) {
   const { services } = useAuth();
   const getArr = services.map((value) => value.genre);
   const newArr = [...new Set(getArr)];
-  console.log(newArr);
-  
+
+
+  useEffect(() => {
+    newArr;
+  }, []);
 
   const getData = newArr.map((value, index) => {
     return (
       <li
+        onClick={() => setCatName(value)}
         key={index}
         className="cursor-pointer hover:text-[#DA4A54] transition duration-400"
       >
@@ -17,6 +23,8 @@ export default function FilterSection() {
       </li>
     );
   });
+
+
 
   return (
     <div>
