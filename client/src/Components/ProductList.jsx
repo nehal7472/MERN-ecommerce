@@ -1,31 +1,21 @@
-// /* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types */
 // import { NavLink } from "react-router-dom";
 // import { useAuth } from "../store/auth";
 // import { useEffect } from "react";
 
-// export default function ProductList() {
-//   const { services } = useAuth();
+import { useFilterContext } from "../context/FilterContext";
+import Product from "./Product";
 
-//   useEffect(() => {
-//     services;
-//   }, []);
+export default function ProductList() {
+  const { filter_products } = useFilterContext();
 
-//   const products = services.map((v, i) => (
-//     <div key={i} className="w-[160px] h-[350px]">
-//       <NavLink to={`./singleproduct/${v.subTitle}`}>
-//         <div className="cursor-pointer">
-//           <img
-//             src={v.image}
-//             alt="topBooksImage"
-//             className="w-[150px] h-[210px] rounded-md"
-//           />
-//           <h1>{v.title}</h1>
-//           <h2>{v.subTitle}</h2>
-//           <span>stars</span>
-//         </div>
-//       </NavLink>
-//     </div>
-//   ));
-
-//   return <>{products.length >= 1 ? products : "Loading ..."}</>;
-// }
+  return (
+    <>
+      {filter_products.map((curElem, index) => (
+        <div key={index} className="w-[160px] h-[350px]">
+          <Product curElem={curElem} />
+        </div>
+      ))}
+    </>
+  );
+}

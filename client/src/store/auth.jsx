@@ -1,15 +1,35 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
+import axios from "axios";
+import reducer from "../reducer/productReducer";
 
-export const AuthContext = createContext();
+export const AppContext = createContext();
+const API = "http://localhost:5000/api/data/service";
 
-export const AuthProvider = ({ children }) => {
+const initialState = {
+  isLoading: false,
+  isError: false,
+  products: [],
+  featureProducts: [],
+  isSingleLoading: false,
+  singleProduct: {},
+};
+
+export const AppProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [services, setServices] = useState([]);
   const authorizationToken = `Bearer ${token}`;
 
   const storeTokenInLS = (serverToken) => {
@@ -48,46 +68,60 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // to get service from database
-  const getServices = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/api/data/service", {
-        method: "GET",
-      });
+  // to get products from database
+  // ..................
+  // .........................
 
-      if (response.ok) {
-        const data = await response.json();
-        setServices(data.msg);
-      }
+  const getServices = async (url) => {
+    dispatch({ type: "SET_LOADING" });
+    try {
+      const res = await axios.get(url);
+      const products = await res.data.msg;
+      dispatch({ type: "SET_API_DATA", payload: products });
     } catch (error) {
-      console.log(`services fronted error: ${error}`);
+      dispatch({ type: "API_ERROR" });
+    }
+  };
+
+  // to get single products from database
+  // ..................
+  // .........................
+  const getSingleServices = async (url) => {
+    dispatch({ type: "SET_SINGLE_LOADING" });
+    try {
+      const res = await axios.get(url);
+      const singleProduct = await res.data.msg;
+      dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
+    } catch (error) {
+      dispatch({ type: "SET_SINGLE_ERROR" });
     }
   };
 
   useEffect(() => {
-    getServices();
+    getServices(API);
     userAuthentication();
   }, []);
 
   return (
-    <AuthContext.Provider
+    <AppContext.Provider
       value={{
+        ...state,
+        getSingleServices,
         isLoggedIn,
         storeTokenInLS,
         logoutUser,
         user,
-        services,
         authorizationToken,
         isLoading,
       }}
     >
       {children}
-    </AuthContext.Provider>
+    </AppContext.Provider>
   );
 };
 
 export const useAuth = () => {
-  const authContextValue = useContext(AuthContext);
+  const authContextValue = useContext(AppContext);
   if (!authContextValue) {
     throw new Error("useAuth used outside of the Provider");
   }

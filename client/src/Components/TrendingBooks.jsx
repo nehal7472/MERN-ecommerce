@@ -1,9 +1,18 @@
-import Card from "./Card";
+/* eslint-disable react/jsx-no-undef */
+import Product from "./Product";
 import Library from "../assets/library.jpg";
 import Lock from "../assets/lock.png";
 import Heading from "./Heading";
+import { useAuth } from "../store/auth";
 
 export default function TrendingBooks() {
+  const { isLoading, featureProducts } = useAuth();
+
+  // console.log(featureProducts);
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
   let headingInfo = {
     author: "Trending Books",
     heading: "Best Books",
@@ -15,9 +24,17 @@ export default function TrendingBooks() {
     <>
       <div className="bg-[#111827]">
         <div className="container pb-[50px]">
-          <Heading author = {headingInfo.author} heading= {headingInfo.heading} paragraph = {headingInfo.paragraph}/>
-          <div >
-            <Card />
+          <Heading
+            author={headingInfo.author}
+            heading={headingInfo.heading}
+            paragraph={headingInfo.paragraph}
+          />
+          <div>
+            <div className="grid grid-cols-3 justify-items-center">
+              {featureProducts.map((curElem) => {
+                return <Product key={curElem.id} curElem={curElem} />;
+              })}
+            </div>
           </div>
           <div className="pt-[70px] flex gap-[100px] pl-[5rem]">
             <div className="max-w-[400px] shadow-2xl shadow-black">

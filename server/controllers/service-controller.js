@@ -2,7 +2,7 @@ const Service = require("../models/service-model");
 
 const services = async (req, res) => {
   try {
-    const response = await Service.find();
+    let response = await Service.find(req.query);
     if (!response) {
       res.status(404).json({ msg: "No service found" });
       return;

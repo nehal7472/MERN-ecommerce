@@ -23,7 +23,7 @@ app.use("/api/auth", authRoute);
 
 app.use("/api/form", contactRoute);
 
-app.use("/api/data", serviceRouter);
+app.use("/api/data", serviceRouter );
 
 // let's define admin route
 app.use("/api/admin", adminRoute);
