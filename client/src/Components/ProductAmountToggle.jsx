@@ -9,13 +9,16 @@ export default function ProductAmountToggle({
 }) {
   return (
     <>
-      <div className="flex gap-2 text-[30px]">
+      <div className="flex gap-2 text-[25px]">
         <button onClick={() => setDecrease()}>
-        <FontAwesomeIcon icon={faMinus} />
+          <FontAwesomeIcon icon={faMinus} className="text-[20px]" />
         </button>
         <p>{amount}</p>
         <button onClick={() => setIncrease()}>
-        <FontAwesomeIcon icon={faPlus} />
+          <FontAwesomeIcon
+            icon={faPlus}
+            className="text-[20px]"
+          />
         </button>
       </div>
     </>

@@ -18,7 +18,6 @@ export default function PageNavigation({
   price,
   rating,
   discountPrice,
-  description,
   Available,
   subTitle,
 }) {
@@ -49,11 +48,10 @@ export default function PageNavigation({
             <div className="w-[400px] ">
               <h2 className="text-[40px] text-slate-200">{title}</h2>
               <p className="text-red-300">{rating}</p>
-              <p className="text-[30px] line-through">BDT : {price}</p>
+              <p className="text-[30px] line-through">BDT : {price}৳</p>
               <p className="text-[25px] text-[#DA4A54]">
-                After Discount : {discountPrice}
+                After Discount : {discountPrice}৳
               </p>
-              <p>{description}</p>
               <div className="flex gap-[15px] bg-slate-800 w-[250px] justify-center rounded-lg my-[7px] p-[7px]">
                 <div className="flex flex-col justify-center items-center ">
                   <p>
@@ -68,13 +66,14 @@ export default function PageNavigation({
                   <p className="text-25px">2 years warranty</p>
                 </div>
               </div>
+              <p>ID : {subTitle}</p>
               <p className="text-25px">
                 Available :{" "}
                 <span className="text-[#DA4A54]">
                   {Available > 0 ? "In Stock" : "Not in stock"}
                 </span>
               </p>
-              <p>ID : {subTitle}</p>
+              <p className="text-[25px]">Total Stock : {Available}</p>
               <div className="my-[10px]">
                 <ProductAmountToggle
                   amount={amount}
