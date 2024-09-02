@@ -8,10 +8,12 @@ import {
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../../store/auth";
+import { useCartContext } from "../../context/CartContext";
 
 export default function Header() {
   const { isLoggedIn, user } = useAuth();
   let [dropDown, SetDropDown] = useState(false);
+  const { total_item } = useCartContext();
 
   return (
     <>
@@ -130,12 +132,15 @@ export default function Header() {
                 <NavLink
                   className={(e) => {
                     return e.isActive
-                      ? "text-[#DA4A54] text-[25px]"
-                      : "text-[25px]";
+                      ? "text-[#DA4A54] text-[25px] relative"
+                      : "text-[25px] relative ";
                   }}
                   to={"/cart"}
                 >
                   <FontAwesomeIcon icon={faCartPlus} />
+                  <span className="text-[white] text-[18px] absolute top-[-12px] left-[20px]  bg-[#DA4A54] rounded-full px-[5px]">
+                    {total_item}
+                  </span>
                 </NavLink>
               </ul>
             </div>

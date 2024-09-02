@@ -57,9 +57,33 @@ export default function Cart() {
               Clear Cart
             </button>
           </div>
+          {/* total calculate  */}
+          <div className="flex justify-end ">
+            <div className="overflow-x-auto flex flex-col items-center  h-screen scroll-m-2">
+              <div className="w-[70%] grid grid-cols-2 gap-4 justify-items-start">
+                <div className="card bg-base-100 w-96 shadow-xl">
+                  <div className="card-body">
+                    <h2 className="card-title">
+                      SubTotal :<span>00</span>
+                    </h2>
+                    <h2 className="card-title">
+                      SubTotal :<span>00</span>
+                    </h2>
+                    <hr />
+                    <h2 className="card-title">
+                      Order Total :<span>00</span>
+                    </h2>
+                    <div className="card-actions justify-end"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
-        ""
+        <div className="h-[15rem] flex justify-center items-center">
+          <h2 className="text-[25px]">No Cart in Item Page❗</h2>
+        </div>
       )}
     </>
   );
