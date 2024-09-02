@@ -19,7 +19,7 @@ export default function Product() {
           <div>
             <Sort />
           </div>
-          <div className="grid grid-cols-3 gap-2 justify-items-center">
+          <div className="grid grid-cols-3 gap-2 justify-items-center pt-[25px]">
             <ProductList />
           </div>
         </div>

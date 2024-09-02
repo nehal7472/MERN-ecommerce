@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
   faMessage,
-  faDumpster,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../../store/auth";
@@ -45,16 +44,7 @@ export default function Admin() {
                 Contacts
               </NavLink>
             </li>
-            <li className="hover:text-[#DA4A54] transition duration-300 ease-in-out">
-              <NavLink
-                className={(e) => {
-                  return e.isActive ? "text-[#DA4A54]" : "";
-                }}
-                to={"/admin/services"}
-              >
-                <FontAwesomeIcon icon={faDumpster} /> Services
-              </NavLink>
-            </li>
+
             <li className="hover:text-[#DA4A54] transition duration-300 ease-in-out">
               <NavLink
                 className={(e) => {

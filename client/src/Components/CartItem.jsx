@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { useCartContext } from "../context/CartContext";
 
 export default function CartItem({ value }) {
@@ -21,13 +21,20 @@ export default function CartItem({ value }) {
           </td>
           <td className="px-6 py-4">{value.price * value.amount}৳</td>
           <td className="px-6 py-4">
-            <a
+            {/* <a
               onClick={() => removeItem(value.id)}
               href="#"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               Remove
-            </a>
+            </a> */}
+            <td className="px-6 py-4">
+              <FontAwesomeIcon
+                onClick={() => removeItem(value.id)}
+                icon={faTrashCan}
+                className=" text-[#DA4A54] hover:text-[red] transition duration-300 ease-in-out cursor-pointer"
+              />
+            </td>
           </td>
         </tr>
       </tbody>

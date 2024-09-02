@@ -10,6 +10,7 @@ import ProductAmountToggle from "../Components/ProductAmountToggle";
 import { useState } from "react";
 import { useCartContext } from "../context/CartContext";
 
+
 export default function PageNavigation({
   product,
   id,
@@ -24,6 +25,7 @@ export default function PageNavigation({
   const { addToCart } = useCartContext();
   const [amount, setAmount] = useState(1);
 
+
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
   };
@@ -35,7 +37,7 @@ export default function PageNavigation({
   return (
     <>
       <div>
-        <div className="container text-[40px] text-[#DA4A54]">
+        <div className="container text-[40px] text-[#DA4A54] fixed">
           <NavLink to={"/"}>
             <FontAwesomeIcon icon={faArrowLeftLong} />
           </NavLink>
@@ -74,19 +76,33 @@ export default function PageNavigation({
                 </span>
               </p>
               <p className="text-[25px]">Total Stock : {Available}</p>
-              <div className="my-[10px]">
-                <ProductAmountToggle
-                  amount={amount}
-                  setDecrease={setDecrease}
-                  setIncrease={setIncrease}
-                />
-              </div>
-              <NavLink
-                to={`/cart`}
-                onClick={() => addToCart(id, amount, title, price, product)}
-              >
-                <button className="btn btn-error">Add To Card</button>
-              </NavLink>
+              {Available != 0 ? (
+                <div className="my-[10px]">
+                  <ProductAmountToggle
+                    amount={amount}
+                    setDecrease={setDecrease}
+                    setIncrease={setIncrease}
+                  />
+                </div>
+              ) : (
+                <div className="my-[10px]">
+                  <ProductAmountToggle
+                    amount={"0"}
+                    setDecrease={setDecrease}
+                    setIncrease={setIncrease}
+                  />
+                </div>
+              )}
+              {Available != 0  ? (
+                <NavLink
+                  to={`/cart`}
+                  onClick={() => addToCart(id, amount, title, price, product)}
+                >
+                  <button className="btn  btn-error">Add To Card</button>
+                </NavLink>
+              ) : (
+                <button className="btn  btn-error">Not In Stock</button>
+              )}
             </div>
           </div>
         </div>
