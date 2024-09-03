@@ -1,10 +1,15 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable no-unused-vars */
 import CartItem from "../Components/CartItem";
 import { useCartContext } from "../context/CartContext";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/auth";
 
+import Checkout from "../Components/Checkout";
+
 export default function Cart() {
   const { cart, clearCart } = useCartContext();
+
   const { isLoggedIn } = useAuth();
 
   if (cart.length === 0) {
@@ -21,7 +26,7 @@ export default function Cart() {
         <div className="container">
           <div className=" relative overflow-x-auto shadow-md ">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-400">
                 <tr>
                   <th scope="col" className="px-6 py-3">
                     Product
@@ -49,7 +54,7 @@ export default function Cart() {
             </table>
             <hr />
           </div>
-          <div className="flex justify-between pt-[15px]">
+          <div className="flex justify-between p-[15px]">
             <NavLink to={"/product"}>
               <button className="btn btn-success">Continue Shopping</button>
             </NavLink>
@@ -57,28 +62,9 @@ export default function Cart() {
               Clear Cart
             </button>
           </div>
-          {/* total calculate  */}
-          <div className="flex justify-end ">
-            <div className="overflow-x-auto flex flex-col items-center  h-screen scroll-m-2">
-              <div className="w-[70%] grid grid-cols-2 gap-4 justify-items-start">
-                <div className="card bg-base-100 w-96 shadow-xl">
-                  <div className="card-body">
-                    <h2 className="card-title">
-                      SubTotal :<span>00</span>
-                    </h2>
-                    <h2 className="card-title">
-                      SubTotal :<span>00</span>
-                    </h2>
-                    <hr />
-                    <h2 className="card-title">
-                      Order Total :<span>00</span>
-                    </h2>
-                    <div className="card-actions justify-end"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* payment method start */}
+          <Checkout />;
+          {/* payment method end */}
         </div>
       ) : (
         <div className="h-[15rem] flex justify-center items-center">

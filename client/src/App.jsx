@@ -16,6 +16,9 @@ import AdminUsers from "./pages/AdminUsers";
 import AdminContacts from "./pages/AdminContacts";
 import AdminServices from "./pages/AdminServices";
 import AdminUpdate from "./pages/AdminUpdate";
+import PaymentSuccess from "./Components/Payment/PaymentSuccess";
+import PaymentEror from "./Components/Payment/PaymentEror";
+import Fail from "./Components/Payment/Fail";
 
 export default function App() {
   return (
@@ -35,6 +38,9 @@ export default function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/singleproduct/:id" element={<SingleProduct />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+          <Route path="/paymenterror" element={<PaymentEror />} />
+          <Route path="/fail" element={<Fail />} />
           <Route
             path="/product/singleproduct/:id"
             element={<SingleProduct />}

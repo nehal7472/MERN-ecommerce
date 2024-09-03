@@ -138,7 +138,7 @@ export default function Header() {
                   to={"/cart"}
                 >
                   <FontAwesomeIcon icon={faCartPlus} />
-                  <span className="text-[white] text-[18px] absolute top-[-12px] left-[20px]  bg-[#DA4A54] rounded-full px-[5px]">
+                  <span className="text-[white] text-[18px] absolute top-[-12px] left-[20px]  bg-blue-500 rounded-full px-[5px]">
                     {total_item}
                   </span>
                 </NavLink>

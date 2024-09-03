@@ -3,11 +3,11 @@ import FilterSection from "../Components/FilterSection";
 import Footer from "../Components/Footer";
 import Sort from "../Components/Sort";
 import ProductList from "../Components/ProductList";
-import { useFilterContext } from "../context/FilterContext";
+// import { useFilterContext } from "../context/FilterContext";
 
 export default function Product() {
-  const { filter_products } = useFilterContext();
-  console.log("product", filter_products);
+  // const { filter_products } = useFilterContext();
+  // console.log("product", filter_products);
 
   return (
     <>
