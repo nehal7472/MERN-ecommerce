@@ -30,6 +30,7 @@ export default function SingleProduct() {
           title,
           price,
           rating,
+          review,
           discountPrice,
           description,
           Available,
@@ -37,6 +38,7 @@ export default function SingleProduct() {
         } = value[1];
         return (
           <PageNavigation
+            review={review}
             product={value[1]}
             id={id}
             key={index}

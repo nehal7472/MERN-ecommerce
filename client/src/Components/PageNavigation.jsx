@@ -9,7 +9,7 @@ import {
 import ProductAmountToggle from "../Components/ProductAmountToggle";
 import { useState } from "react";
 import { useCartContext } from "../context/CartContext";
-
+import Star from "./Star";
 
 export default function PageNavigation({
   product,
@@ -18,13 +18,13 @@ export default function PageNavigation({
   title,
   price,
   rating,
+  review,
   discountPrice,
   Available,
   subTitle,
 }) {
   const { addToCart } = useCartContext();
   const [amount, setAmount] = useState(1);
-
 
   const setDecrease = () => {
     amount > 1 ? setAmount(amount - 1) : setAmount(1);
@@ -49,7 +49,7 @@ export default function PageNavigation({
             </div>
             <div className="w-[400px] ">
               <h2 className="text-[40px] text-slate-200">{title}</h2>
-              <p className="text-red-300">{rating}</p>
+              <Star stars={rating} review = {review}/>
               <p className="text-[30px] line-through">BDT : {price}৳</p>
               <p className="text-[25px] text-[#DA4A54]">
                 After Discount : {discountPrice}৳
@@ -93,7 +93,7 @@ export default function PageNavigation({
                   />
                 </div>
               )}
-              {Available != 0  ? (
+              {Available != 0 ? (
                 <NavLink
                   to={`/cart`}
                   onClick={() => addToCart(id, amount, title, price, product)}

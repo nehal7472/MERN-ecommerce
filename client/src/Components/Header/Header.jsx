@@ -129,19 +129,35 @@ export default function Header() {
                   </>
                 )}
 
-                <NavLink
-                  className={(e) => {
-                    return e.isActive
-                      ? "text-[#DA4A54] text-[25px] relative"
-                      : "text-[25px] relative ";
-                  }}
-                  to={"/cart"}
-                >
-                  <FontAwesomeIcon icon={faCartPlus} />
-                  <span className="text-[white] text-[18px] absolute top-[-12px] left-[20px]  bg-blue-500 rounded-full px-[5px]">
-                    {total_item}
-                  </span>
-                </NavLink>
+                {isLoggedIn ? (
+                  <NavLink
+                    className={(e) => {
+                      return e.isActive
+                        ? "text-[#DA4A54] text-[25px] relative"
+                        : "text-[25px] relative ";
+                    }}
+                    to={"/cart"}
+                  >
+                    <FontAwesomeIcon icon={faCartPlus} />
+                    <span className="text-[white] text-[18px] absolute top-[-12px] left-[20px]  bg-blue-500 rounded-full px-[5px]">
+                      {total_item}
+                    </span>
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    className={(e) => {
+                      return e.isActive
+                        ? "text-[#DA4A54] text-[25px] relative"
+                        : "text-[25px] relative ";
+                    }}
+                    to={"/cart"}
+                  >
+                    <FontAwesomeIcon icon={faCartPlus} />
+                    <span className="text-[white] text-[18px] absolute top-[-12px] left-[20px]  bg-blue-500 rounded-full px-[5px]">
+                      0
+                    </span>
+                  </NavLink>
+                )}
               </ul>
             </div>
           </div>

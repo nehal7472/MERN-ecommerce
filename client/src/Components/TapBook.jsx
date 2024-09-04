@@ -2,6 +2,7 @@ import Heading from "./Heading";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useFilterContext } from "../context/FilterContext";
+import Star from "./Star";
 
 export default function TapBook() {
   const { filter_products } = useFilterContext();
@@ -28,7 +29,7 @@ export default function TapBook() {
                 />
                 <h1>{v.title}</h1>
                 <h2>{v.subTitle}</h2>
-                <span>stars</span>
+                <Star stars={v.rating} />
               </div>
             </NavLink>
           </div>
@@ -50,7 +51,7 @@ export default function TapBook() {
             />
             <h1>{v.title}</h1>
             <h2>{v.subTitle}</h2>
-            <span>stars</span>
+            <Star stars={v.rating} />
           </div>
         </NavLink>
       </div>
