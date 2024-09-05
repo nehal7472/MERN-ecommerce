@@ -14,7 +14,10 @@ export default function Modal() {
       >
         Get Offer
       </button>
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+      <dialog
+        id="my_modal_5"
+        className="modal modal-bottom sm:modal-middle lg:modal-middle"
+      >
         <div className="modal-box h-[30rem] hover:border hover:border-rose-500  ">
           <h3 className="font-bold text-lg">
             <ModalInfo />

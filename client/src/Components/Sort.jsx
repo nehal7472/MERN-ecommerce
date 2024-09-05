@@ -8,7 +8,7 @@ export default function Sort() {
 
   return (
     <>
-      <div className="flex justify-between items-center mb-16">
+      <div className="flex justify-between">
         <img src={Logo} alt={"logo"} width={"50px"} />
         <h3>
           <span>
@@ -19,7 +19,6 @@ export default function Sort() {
           </span>
           &nbsp; {filter_products?.length}
         </h3>
-        {/* filter product  */}
         <div className="">
           <form action="#">
             <label htmlFor="sort"></label>

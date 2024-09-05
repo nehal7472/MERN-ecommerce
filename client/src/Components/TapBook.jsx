@@ -8,31 +8,32 @@ export default function TapBook() {
   const { filter_products } = useFilterContext();
   const [show, setShow] = useState(false);
 
-  let headingInfo = {
+  const headingInfo = {
     author: "Best Books",
     heading: "Top Books",
     paragraph:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa iure, corporis",
+      "Discover the top books available in our collection. Curated just for you!",
   };
 
-  const showData = filter_products.map((v) => {
-    return (
-      <div key={v.id} className="w-[160px] h-[350px]">
-        <NavLink to={`/singleproduct/${v.id}`}>
-          <div className="cursor-pointer">
-            <img
-              src={v.image}
-              alt="topBooksImage"
-              className="w-[150px] h-[210px] rounded-md"
-            />
-            <h1>{v.title}</h1>
-            <h2>{v.subTitle}</h2>
-            <Star stars={v.rating} />
-          </div>
-        </NavLink>
-      </div>
-    );
-  });
+  const showData = filter_products.map((v) => (
+    <div
+      key={v.id}
+      className="w-full sm:w-[160px] md:w-[180px] lg:w-[200px] h-[350px] flex flex-col items-center bg-[#1F2937] p-4 rounded-lg shadow-lg hover:scale-105 transition-transform transform duration-300 text-center"
+    >
+      <NavLink to={`/singleproduct/${v.id}`}>
+        <div className="cursor-pointer">
+          <img
+            src={v.image}
+            alt={v.title}
+            className="w-full h-[210px] object-cover rounded-md mb-4"
+          />
+          <h1 className="text-lg font-semibold text-white">{v.title}</h1>
+          <h2 className="text-sm text-gray-400">{v.subTitle}</h2>
+          <Star stars={v.rating} />
+        </div>
+      </NavLink>
+    </div>
+  ));
 
   const showBooks = () => {
     setShow(!show);
@@ -40,23 +41,23 @@ export default function TapBook() {
 
   return (
     <>
-      <div className="bg-[#111827]">
-        <div className="container">
-          <div className=" ">
-            <Heading
-              author={headingInfo.author}
-              heading={headingInfo.heading}
-              paragraph={headingInfo.paragraph}
-            />
-          </div>
-          <div className="grid grid-cols-5 gap-4 justify-items-center">
+      <div className="bg-[#111827] py-12">
+        <div className="container mx-auto px-4">
+          {/* Heading */}
+          <Heading
+            author={headingInfo.author}
+            heading={headingInfo.heading}
+            paragraph={headingInfo.paragraph}
+          />
+
+          {/* Book Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center mt-8">
             {!show ? showData.slice(0, 5) : showData}
           </div>
-          <div className="flex justify-center mt-8">
-            <button
-              onClick={(showHide) => showBooks(showHide)}
-              className="btn btn-outline btn-error"
-            >
+
+          {/* Button */}
+          <div className="flex justify-center mt-10">
+            <button onClick={showBooks} className="btn btn-error text-white">
               {show ? "Hide All Books" : "View All Books"}
             </button>
           </div>

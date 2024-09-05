@@ -21,7 +21,7 @@ export default function About() {
     },
     {
       id: 2,
-      text: "“Getting a quality website is not an expenses but rather an investment...............”",
+      text: "“Getting a quality website is not an expense but rather an investment...............”",
       subTitle: "― Dr. Christopher Dayagdag",
       image: AboutDot,
     },
@@ -35,41 +35,42 @@ export default function About() {
 
   return (
     <>
+      {/* Hero Section with Background Image and Quotes */}
       <div
-        className="bg-center bg-no-repeat bg-cover h-[550px] flex justify-center items-center flex-col px-[250px]"
+        className="bg-center bg-no-repeat bg-cover h-[550px] flex justify-center items-center flex-col px-4 md:px-[150px] text-center"
         style={{ backgroundImage: `url(${AboutUs})` }}
       >
-        <h1 className="text-[25px] text-[#cf4f04] font-semibold">
+        <h1 className="text-[18px] md:text-[25px] text-[#cf4f04] font-semibold mb-4">
           {data.text}
         </h1>
-        <h2 className="text-[#fff] text-[20px] font-semibold text-start">
+        <h2 className="text-[#fff] text-[18px] md:text-[20px] font-semibold">
           {data.subTitle}
         </h2>
-        <div className="flex gap-4">
-          {quotes.map((v, i) => {
-            return (
-              <img
-                key={i}
-                src={v.image}
-                alt="AboutDot"
-                className="w-[30px] cursor-pointer"
-                onClick={() => displayData(v)}
-              />
-            );
-          })}
+        <div className="flex gap-4 mt-6">
+          {quotes.map((v, i) => (
+            <img
+              key={i}
+              src={v.image}
+              alt="AboutDot"
+              className="w-[20px] md:w-[30px] cursor-pointer"
+              onClick={() => displayData(v)}
+            />
+          ))}
         </div>
       </div>
-      <div className="bg-[#111827]">
-        <div className="container">
-          <div className="flex justify-around items-center gap-[100px] pt-[150px]">
-            <div className="w-[550px]">
-              <h2 className="text-[15px] text-blue-800 font-semibold">
+
+      {/* History Section */}
+      <div className="bg-[#111827] py-[50px] md:py-[150px]">
+        <div className="container mx-auto px-4 md:px-0">
+          <div className="flex flex-col md:flex-row justify-around items-center gap-[50px] md:gap-[100px]">
+            <div className="text-center md:text-left max-w-[550px]">
+              <h2 className="text-[12px] md:text-[15px] text-blue-800 font-semibold">
                 OUR HISTORY
               </h2>
-              <h1 className="text-[50px] text-white font-semibold">
+              <h1 className="text-[35px] md:text-[50px] text-white font-semibold">
                 <span className="text-[#DA4A54]">Creative</span> and renovate fashion trends
               </h1>
-              <p className="text-[25px]">
+              <p className="text-[16px] md:text-[25px] text-gray-300 mt-4">
                 Collaboratively administrate empowered markets via plug-and-play
                 maintain networks. Dynamically usable procrastinate B2B users
                 after installed base benefits. Dramatically visualize customer
@@ -80,19 +81,25 @@ export default function About() {
               <img
                 src={AboutHistory}
                 alt="aboutImage"
-                className="max-w-[500px]"
+                className="w-full max-w-[300px] md:max-w-[500px] rounded-lg shadow-lg"
               />
             </div>
           </div>
-          <div className="flex flex-row-reverse justify-around items-center gap-[100px] py-[150px]">
-            <div className="w-[550px]">
-              <h2 className="text-[15px] text-blue-800 font-semibold">
+        </div>
+      </div>
+
+      {/* Vision Section */}
+      <div className="bg-[#111827] py-[50px] md:py-[150px]">
+        <div className="container mx-auto px-4 md:px-0">
+          <div className="flex flex-col-reverse md:flex-row justify-around items-center gap-[50px] md:gap-[100px]">
+            <div className="text-center md:text-left max-w-[550px]">
+              <h2 className="text-[12px] md:text-[15px] text-blue-800 font-semibold">
                 OUR VISION
               </h2>
-              <h1 className="text-[50px] text-white font-semibold">
+              <h1 className="text-[35px] md:text-[50px] text-white font-semibold">
                 <span className="text-[#DA4A54]">Creative</span> and renovate fashion trends
               </h1>
-              <p className="text-[25px]">
+              <p className="text-[16px] md:text-[25px] text-gray-300 mt-4">
                 Collaboratively administrate empowered markets via plug-and-play
                 maintain networks. Dynamically usable procrastinate B2B users
                 after installed base benefits. Dramatically visualize customer
@@ -103,13 +110,15 @@ export default function About() {
               <img
                 src={AboutVision}
                 alt="aboutImage"
-                className="max-w-[300px]"
+                className="w-full max-w-[250px] md:max-w-[300px] rounded-lg shadow-lg"
               />
             </div>
           </div>
         </div>
       </div>
-      <Footer/>
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 }

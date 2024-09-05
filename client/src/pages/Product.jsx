@@ -11,19 +11,22 @@ export default function Product() {
 
   return (
     <>
-      <div className="container grid grid-cols-6 gap-4 my-[40px] pt-[25px]">
-        <div className="col-start-2 col-end-3">
-          <FilterSection />
-        </div>
-        <div className="col-start-3 col-end-6">
-          <div>
-            <Sort />
+      <div className="container mx-auto my-10 px-4 sm:px-[5rem] ">
+        <div className="grid grid-cols-1 md:grid-cols-4 ">
+          <div className="md:col-span-1">
+            <FilterSection />
           </div>
-          <div className="grid grid-cols-3 gap-2 justify-items-center pt-[25px]">
-            <ProductList />
+          <div className="md:col-span-3 grid ">
+            <div className="mb-6">
+              <Sort />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+              <ProductList />
+            </div>
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

@@ -7,7 +7,6 @@ import Registration from "./pages/Register";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Product from "./pages/Product";
-import TopHeader from "../src/Components/Header/TopHeader";
 import Header from "../src/Components/Header/Header";
 import ErrorPage from "./pages/ErrorPage";
 import Logout from "./pages/Logout";
@@ -24,7 +23,6 @@ export default function App() {
   return (
     <>
       <BrowserRouter>
-        <TopHeader />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
