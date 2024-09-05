@@ -16,30 +16,6 @@ export default function TapBook() {
   };
 
   const showData = filter_products.map((v) => {
-    for (let i = 0; i <= v.id; i++) {
-      if (v.id <= 5) {
-        return (
-          <div key={v.id} className="w-[160px] h-[350px]">
-            <NavLink to={`/singleproduct/${v.id}`}>
-              <div className="cursor-pointer">
-                <img
-                  src={v.image}
-                  alt="topBooksImage"
-                  className="w-[150px] h-[210px] rounded-md"
-                />
-                <h1>{v.title}</h1>
-                <h2>{v.subTitle}</h2>
-                <Star stars={v.rating} />
-              </div>
-            </NavLink>
-          </div>
-        );
-      }
-      break;
-    }
-  });
-
-  const showAllData = filter_products.map((v) => {
     return (
       <div key={v.id} className="w-[160px] h-[350px]">
         <NavLink to={`/singleproduct/${v.id}`}>
@@ -66,7 +42,7 @@ export default function TapBook() {
     <>
       <div className="bg-[#111827]">
         <div className="container">
-          <div className=" pb-[50px]">
+          <div className=" ">
             <Heading
               author={headingInfo.author}
               heading={headingInfo.heading}
@@ -74,7 +50,7 @@ export default function TapBook() {
             />
           </div>
           <div className="grid grid-cols-5 gap-4 justify-items-center">
-            {!show ? showData : showAllData}
+            {!show ? showData.slice(0, 5) : showData}
           </div>
           <div className="flex justify-center mt-8">
             <button

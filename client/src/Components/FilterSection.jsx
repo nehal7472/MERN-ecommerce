@@ -16,13 +16,13 @@ export default function FilterSection() {
   return (
     <>
       <div>
-        <h2 className="text-[20px]">Searching..</h2>
-        <div className="">
-          <h3 className="text-[20px] font-semibold my-3 text-white">
+        {/* <h2 className="text-[20px]">Searching..</h2> */}
+        <div className="pt-[5rem] sticky">
+          <h3 className="text-[20px] font-semibold my-3 text-white ">
             Category
           </h3>
-          <ul className="text-[18px] flex flex-col gap-2 ">
-            {categoryData.map((v, i) => {
+          <ul className="text-[18px] flex flex-col gap-8 ">
+            {categoryData?.map((v, i) => {
               return (
                 <li
                   key={i}

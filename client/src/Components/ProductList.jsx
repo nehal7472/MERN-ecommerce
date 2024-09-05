@@ -11,7 +11,7 @@ export default function ProductList() {
 
   return (
     <>
-      {filter_products.map((curElem, index) => (
+      {filter_products?.map((curElem, index) => (
         <div key={index} className="w-[160px] h-[350px]">
           <Product curElem={curElem} />
         </div>
