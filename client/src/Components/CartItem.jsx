@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,32 +10,25 @@ export default function CartItem({ value }) {
   return (
     <>
       <tbody>
-        <tr className=" border-b text-[white]">
-          <td className="px-6 py-4">
-            <img src={value.image} alt="" className="w-[30px]" />
+        <tr className="border-b text-white">
+          <td className="px-4 py-2 sm:px-6 sm:py-4">
+            <img src={value.image} alt="" className="w-8 sm:w-10" />
           </td>
-          <td className="px-6 py-4">{value.title}</td>
-          <td className="px-6 py-4">{value.price}৳</td>
-          <td className="px-6 py-4">
-            <FontAwesomeIcon icon={faCartPlus} className="pr-[5px]" />
+          <td className="px-4 py-2 sm:px-6 sm:py-4">{value.title}</td>
+          <td className="px-4 py-2 sm:px-6 sm:py-4">{value.price}৳</td>
+          <td className="px-4 py-2 sm:px-6 sm:py-4">
+            <FontAwesomeIcon icon={faCartPlus} className="pr-1" />
             {value.amount}
           </td>
-          <td className="px-6 py-4">{value.price * value.amount}৳</td>
-          <td className="px-6 py-4">
-            {/* <a
+          <td className="px-4 py-2 sm:px-6 sm:py-4">
+            {value.price * value.amount}৳
+          </td>
+          <td className="px-4 py-2 sm:px-6 sm:py-4">
+            <FontAwesomeIcon
               onClick={() => removeItem(value.id)}
-              href="#"
-              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-            >
-              Remove
-            </a> */}
-            <td className="px-6 py-4">
-              <FontAwesomeIcon
-                onClick={() => removeItem(value.id)}
-                icon={faTrashCan}
-                className=" text-[#DA4A54] hover:text-[red] transition duration-300 ease-in-out cursor-pointer"
-              />
-            </td>
+              icon={faTrashCan}
+              className="text-[#DA4A54] hover:text-red-600 transition duration-300 ease-in-out cursor-pointer"
+            />
           </td>
         </tr>
       </tbody>

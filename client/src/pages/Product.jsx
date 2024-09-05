@@ -12,15 +12,15 @@ export default function Product() {
   return (
     <>
       <div className="container mx-auto my-10 px-4 sm:px-[5rem] ">
-        <div className="grid grid-cols-1 md:grid-cols-4 ">
+        <div className="grid grid-cols-1 md:grid-cols-4 justify-items-center ">
           <div className="md:col-span-1">
             <FilterSection />
           </div>
           <div className="md:col-span-3 grid ">
-            <div className="mb-6">
+            <div className="mb-10 mt-10 md:mt-0">
               <Sort />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-16 justify-items-center">
               <ProductList />
             </div>
           </div>

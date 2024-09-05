@@ -24,26 +24,26 @@ export default function Cart() {
     <>
       {isLoggedIn ? (
         <div className="container">
-          <div className=" relative overflow-x-auto shadow-md ">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-800 dark:text-gray-400">
+          <div className="relative overflow-x-auto shadow-md">
+            <table className="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <thead className="text-xs text-gray-200 uppercase bg-[#903743] dark:bg-gray-800 dark:text-gray-400">
                 <tr>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-4 py-2 sm:px-6 sm:py-3">
                     Product
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-4 py-2 sm:px-6 sm:py-3">
                     Name
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-4 py-2 sm:px-6 sm:py-3">
                     Price
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-4 py-2 sm:px-6 sm:py-3">
                     Quantity
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-4 py-2 sm:px-6 sm:py-3">
                     Total
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-4 py-2 sm:px-6 sm:py-3">
                     Remove
                   </th>
                 </tr>
@@ -63,8 +63,7 @@ export default function Cart() {
             </button>
           </div>
           {/* payment method start */}
-          <Checkout />;
-          {/* payment method end */}
+          <Checkout />;{/* payment method end */}
         </div>
       ) : (
         <div className="h-[15rem] flex justify-center items-center">

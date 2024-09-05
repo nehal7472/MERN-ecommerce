@@ -18,17 +18,17 @@ export default function TapBook() {
   const showData = filter_products.map((v) => (
     <div
       key={v.id}
-      className="w-full sm:w-[160px] md:w-[180px] lg:w-[200px] h-[350px] flex flex-col items-center bg-[#1F2937] p-4 rounded-lg shadow-lg hover:scale-105 transition-transform transform duration-300 text-center"
+      className="w-full sm:w-[160px] md:w-[180px] lg:w-[200px] h-[350px] flex flex-col items-center bg-[#1F2937] p-4 rounded-lg shadow-lg hover:scale-105 transition-transform transform duration-300 text-left overflow-hidden"
     >
       <NavLink to={`/singleproduct/${v.id}`}>
         <div className="cursor-pointer">
           <img
             src={v.image}
-            alt={v.title}
+            alt={'image'}
             className="w-full h-[210px] object-cover rounded-md mb-4"
           />
-          <h1 className="text-lg font-semibold text-white">{v.title}</h1>
-          <h2 className="text-sm text-gray-400">{v.subTitle}</h2>
+          <h1 className="text-lg font-semibold text-white">{`${v.title.slice(0,13)} ...`}</h1>
+          <h2 className="text-sm text-gray-400">{`${v.subTitle.slice(0,17)} ...`}</h2>
           <Star stars={v.rating} />
         </div>
       </NavLink>

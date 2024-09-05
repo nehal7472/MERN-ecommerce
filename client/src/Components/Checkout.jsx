@@ -154,19 +154,19 @@ export default function Checkout() {
             </div>
 
             <div className="mt-6 grow sm:mt-8 lg:mt-0">
-              <div className="space-y-4 rounded-lg border border-gray-100 bg-gray-200 p-6 dark:border-gray-700 dark:bg-gray-800">
+              <div className="space-y-4 rounded-lg  bg-[#903743] p-6 dark:border-gray-700 dark:bg-gray-800">
                 <div className="space-y-2">
                   <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                    <dt className="text-base font-normal text-gray-200 dark:text-gray-400">
                       Original price
                     </dt>
-                    <dd className="text-base font-medium text-gray-900 dark:text-white">
+                    <dd className="text-base font-medium text-gray-200 dark:text-white">
                       $6,592.00
                     </dd>
                   </dl>
 
                   <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                    <dt className="text-base font-normal text-gray-200 dark:text-gray-400">
                       Savings
                     </dt>
                     <dd className="text-base font-medium text-green-500">
@@ -175,19 +175,19 @@ export default function Checkout() {
                   </dl>
 
                   <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                    <dt className="text-base font-normal text-gray-200 dark:text-gray-400">
                       Store Pickup
                     </dt>
-                    <dd className="text-base font-medium text-gray-900 dark:text-white">
+                    <dd className="text-base font-medium text-gray-200 dark:text-white">
                       $99
                     </dd>
                   </dl>
 
                   <dl className="flex items-center justify-between gap-4">
-                    <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                    <dt className="text-base font-normal text-gray-200 dark:text-gray-400">
                       Tax
                     </dt>
-                    <dd className="text-base font-medium text-gray-900 dark:text-white">
+                    <dd className="text-base font-medium text-gray-200 dark:text-white">
                       $799
                     </dd>
                   </dl>

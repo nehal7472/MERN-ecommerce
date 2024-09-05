@@ -36,74 +36,78 @@ export default function PageNavigation({
 
   return (
     <>
-      <div>
-        <div className="container text-[40px] text-[#DA4A54] fixed">
-          <NavLink to={"/"}>
+      <div className="relative">
+        <div className="absolute top-4 left-4 text-3xl text-[#DA4A54]">
+          <NavLink to="/">
             <FontAwesomeIcon icon={faArrowLeftLong} />
           </NavLink>
         </div>
-        <div className="container">
-          <div className="w-[100%] flex justify-center items-center gap-[100px] py-[80px]">
-            <div>
-              <img src={image} alt="SingleImage" className="w-[200px]" />
-            </div>
-            <div className="w-[400px] ">
-              <h2 className="text-[40px] text-slate-200">{title}</h2>
-              <Star stars={rating} review = {review}/>
-              <p className="text-[30px] line-through">BDT : {price}৳</p>
-              <p className="text-[25px] text-[#DA4A54]">
-                After Discount : {discountPrice}৳
-              </p>
-              <div className="flex gap-[15px] bg-slate-800 w-[250px] justify-center rounded-lg my-[7px] p-[7px]">
-                <div className="flex flex-col justify-center items-center ">
-                  <p>
-                    <FontAwesomeIcon icon={faTruck} />
-                  </p>
-                  <p className="text-25px">fast delivery</p>
-                </div>
-                <div className="flex flex-col justify-center items-center">
-                  <span>
-                    <FontAwesomeIcon icon={faCalendarCheck} />
-                  </span>{" "}
-                  <p className="text-25px">2 years warranty</p>
-                </div>
+        <div className="container mx-auto px-4 py-16 flex flex-col lg:flex-row gap-8 lg:gap-16 justify-center items-center">
+          <div className="flex justify-center lg:w-1/2">
+            <img
+              src={image}
+              alt="SingleImage"
+              className="w-[280px] h-auto max-w-xs lg:max-w-md object-cover"
+            />
+          </div>
+          <div className="lg:w-1/2 text-white">
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-200 mb-4">
+              {title}
+            </h2>
+            <Star stars={rating} review={review} />
+
+            <p className="text-2xl line-through mb-4">BDT : {price}৳</p>
+            <p className="text-2xl text-[#DA4A54] mb-4">
+              After Discount : {discountPrice}৳
+            </p>
+
+            <div className="flex flex-col lg:flex-row gap-4 bg-slate-800 p-4 rounded-lg mb-4">
+              <div className="flex flex-col items-center text-sm">
+                <FontAwesomeIcon icon={faTruck} className="text-xl mb-2" />
+                <p>Fast Delivery</p>
               </div>
-              <p>ID : {subTitle}</p>
-              <p className="text-25px">
-                Available :{" "}
-                <span className="text-[#DA4A54]">
-                  {Available > 0 ? "In Stock" : "Not in stock"}
-                </span>
-              </p>
-              <p className="text-[25px]">Total Stock : {Available}</p>
-              {Available != 0 ? (
-                <div className="my-[10px]">
-                  <ProductAmountToggle
-                    amount={amount}
-                    setDecrease={setDecrease}
-                    setIncrease={setIncrease}
-                  />
-                </div>
-              ) : (
-                <div className="my-[10px]">
-                  <ProductAmountToggle
-                    amount={"0"}
-                    setDecrease={setDecrease}
-                    setIncrease={setIncrease}
-                  />
-                </div>
-              )}
-              {Available != 0 ? (
-                <NavLink
-                  to={`/cart`}
-                  onClick={() => addToCart(id, amount, title, price, product)}
-                >
-                  <button className="btn  btn-error">Add To Card</button>
-                </NavLink>
-              ) : (
-                <button className="btn  btn-error">Not In Stock</button>
-              )}
+              <div className="flex flex-col items-center text-sm">
+                <FontAwesomeIcon
+                  icon={faCalendarCheck}
+                  className="text-xl mb-2"
+                />
+                <p>2 Years Warranty</p>
+              </div>
             </div>
+
+            <p className="mb-2 text-lg">ID : {subTitle}</p>
+            <p className="text-lg mb-4">
+              Available :{" "}
+              <span
+                className={`font-semibold ${
+                  Available > 0 ? "text-[#DA4A54]" : "text-red-400"
+                }`}
+              >
+                {Available > 0 ? "In Stock" : "Not in Stock"}
+              </span>
+            </p>
+            <p className="text-lg mb-4">Total Stock : {Available}</p>
+
+            <div className="my-4">
+              <ProductAmountToggle
+                amount={Available > 0 ? amount : "0"}
+                setDecrease={setDecrease}
+                setIncrease={setIncrease}
+              />
+            </div>
+
+            {Available > 0 ? (
+              <NavLink
+                to={`/cart`}
+                onClick={() => addToCart(id, amount, title, price, product)}
+              >
+                <button className="btn btn-error w-full">Add To Cart</button>
+              </NavLink>
+            ) : (
+              <button className="btn btn-error w-full" disabled>
+                Not In Stock
+              </button>
+            )}
           </div>
         </div>
       </div>

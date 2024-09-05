@@ -46,7 +46,9 @@ export default function Login() {
         toast.success("login successful");
         navigate("/");
       } else {
-        toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
+        toast.error(
+          res_data.extraDetails ? res_data.extraDetails : res_data.message
+        );
       }
     } catch (error) {
       console.log(error);
@@ -55,50 +57,64 @@ export default function Login() {
 
   return (
     <>
-      <div className="container my-[120px]">
-        <div className="flex justify-around items-center px-[250px]">
-          <div>
-            <form onSubmit={handleSubmit}>
-              <div className="bg-[#DA4A54] py-16 px-4 rounded-lg bg-opacity-[.6] shadow-sm shadow-[#4DABF5]">
-                <label className="input input-bordered flex items-center gap-2 mb-[10px]">
-                  <FontAwesomeIcon className="text-slate-400" icon={faUser} />
+      <div className="container mx-auto my-12 px-4">
+        <div className="h-vh-100 flex flex-col lg:flex-row justify-center items-center gap-8">
+          <div className="bg-[#9c3c46] py-12 px-6 rounded-lg bg-opacity-70 shadow-lg max-w-md w-full">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-4">
+                <label className="flex items-center gap-3">
+                  <FontAwesomeIcon
+                    className="text-slate-400 text-lg"
+                    icon={faUser}
+                  />
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    className="grow"
-                    placeholder="email"
+                    className="form-input w-full px-4 py-2 rounded-md bg-white text-gray-900 placeholder-gray-400"
+                    placeholder="Email"
                     required
                     autoComplete="off"
                     value={user.email}
                     onChange={handleInput}
                   />
                 </label>
-                <label className="input input-bordered flex items-center gap-2 mb-[10px]">
-                  <FontAwesomeIcon className="text-slate-400" icon={faKey} />
+                <label className="flex items-center gap-3">
+                  <FontAwesomeIcon
+                    className="text-slate-400 text-lg"
+                    icon={faKey}
+                  />
                   <input
                     type="password"
                     name="password"
                     id="password"
-                    className="grow"
-                    placeholder="password"
+                    className="form-input w-full px-4 py-2 rounded-md bg-white text-gray-900 placeholder-gray-400"
+                    placeholder="Password"
                     required
                     autoComplete="off"
                     value={user.password}
                     onChange={handleInput}
                   />
                 </label>
-                <button className="btn btn-neutral">Login</button>
               </div>
+              <button
+                type="submit"
+                className="w-full py-2 px-4 rounded-md text-white bg-[#4DABF5] hover:bg-[#3a8ed9] transition duration-300"
+              >
+                Login
+              </button>
             </form>
-            <div>
-              <h2>
-                do not have account?{" "}
-                <button className="hover:text-[#DA4A54]">
-                  <Link to={"/registration"}>registration</Link>
-                </button>{" "}
-              </h2>
-            </div>
+          </div>
+          <div className="text-center mt-6 lg:mt-0">
+            <p className="text-white text-lg">
+              Do not have an account?{" "}
+              <Link
+                to="/registration"
+                className="text-[#DA4A54] hover:underline"
+              >
+                Register
+              </Link>
+            </p>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function Sort() {
 
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex flex-col gap-3 md:gap-0 md:flex-row justify-between items-center">
         <img src={Logo} alt={"logo"} width={"50px"} />
         <h3>
           <span>
@@ -26,7 +26,7 @@ export default function Sort() {
               onClick={sorting}
               name="sort"
               id="sort"
-              className="text-[15px] py-[5px] px-[3px] border border-red-600 outline-none"
+              className="text-[10px] md:text-[15px] py-[5px] px-[3px] border border-red-600 outline-none"
             >
               <option value="a-z">price (a-z)</option>
               <option value="z-a">price (z-a)</option>

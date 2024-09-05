@@ -76,21 +76,28 @@ export default function Register() {
 
   return (
     <>
-      <div className="container my-[120px]">
-        <div className="flex justify-around items-center px-[250px]">
-          <div className="w-[350px]">
-            <img src={RegImage} alt="RegImage" />
+      <div className="container mx-auto my-12 px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+          <div className="hidden w-full lg:w-1/2 max-w-md md:flex justify-center">
+            <img src={RegImage} alt="Registration" className="w-full h-auto " />
           </div>
-          <div>
-            <form onSubmit={handleSubmit}>
-              <div className="bg-[#DA4A54] py-8 px-4 rounded-lg bg-opacity-[.6] shadow-sm shadow-[#4DABF5]">
-                <label className="input input-bordered flex items-center gap-2 mb-[10px]">
-                  <FontAwesomeIcon className="text-slate-400" icon={faUser} />
+
+          <div className="w-full lg:w-1/2 max-w-md">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-[#9c3c46] p-8 rounded-lg bg-opacity-70 shadow-lg"
+            >
+              <div className="space-y-4">
+                <label className="flex items-center gap-3 bg-white rounded-md shadow-sm px-3 py-2">
+                  <FontAwesomeIcon
+                    className="text-slate-400 text-lg"
+                    icon={faUser}
+                  />
                   <input
                     type="text"
                     name="username"
                     id="username"
-                    className="grow"
+                    className="w-full px-3 py-2 rounded-md bg-white text-gray-900 placeholder-gray-400"
                     placeholder="Username"
                     required
                     autoComplete="off"
@@ -98,61 +105,73 @@ export default function Register() {
                     onChange={handleInput}
                   />
                 </label>
-                <label className="input input-bordered flex items-center gap-2 mb-[10px]">
+                <label className="flex items-center gap-3 bg-white rounded-md shadow-sm px-3 py-2">
                   <FontAwesomeIcon
-                    className="text-slate-400"
+                    className="text-slate-400 text-lg"
                     icon={faEnvelope}
                   />
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    className="grow"
-                    placeholder="email"
+                    className="w-full px-3 py-2 rounded-md bg-white text-gray-900 placeholder-gray-400"
+                    placeholder="Email"
                     required
                     autoComplete="off"
                     value={user.email}
                     onChange={handleInput}
                   />
                 </label>
-                <label className="input input-bordered flex items-center gap-2 mb-[10px]">
-                  <FontAwesomeIcon className="text-slate-400" icon={faPhone} />
+                <label className="flex items-center gap-3 bg-white rounded-md shadow-sm px-3 py-2">
+                  <FontAwesomeIcon
+                    className="text-slate-400 text-lg"
+                    icon={faPhone}
+                  />
                   <input
-                    type="number"
+                    type="tel"
                     name="phone"
                     id="phone"
-                    className="grow"
-                    placeholder="phone"
+                    className="w-full px-3 py-2 rounded-md bg-white text-gray-900 placeholder-gray-400"
+                    placeholder="Phone"
                     required
                     autoComplete="off"
                     value={user.phone}
                     onChange={handleInput}
                   />
                 </label>
-                <label className="input input-bordered flex items-center gap-2 mb-[10px]">
-                  <FontAwesomeIcon className="text-slate-400" icon={faKey} />
+                <label className="flex items-center gap-3 bg-white rounded-md shadow-sm px-3 py-2">
+                  <FontAwesomeIcon
+                    className="text-slate-400 text-lg"
+                    icon={faKey}
+                  />
                   <input
                     type="password"
                     name="password"
                     id="password"
-                    className="grow"
-                    placeholder="password"
+                    className="w-full px-3 py-2 rounded-md bg-white text-gray-900 placeholder-gray-400"
+                    placeholder="Password"
                     required
                     autoComplete="off"
                     value={user.password}
                     onChange={handleInput}
                   />
                 </label>
-                <button className="btn btn-neutral">Registration</button>
+                <button
+                  type="submit"
+                  className="w-full py-2 px-4 rounded-md text-white bg-[#4DABF5] hover:bg-[#3a8ed9] transition duration-300"
+                >
+                  Register
+                </button>
               </div>
             </form>
-            <div>
-              <h2>
-                already have account?
-                <button className="hover:text-[#DA4A54]">
-                  <Link to={"/login"}>login</Link>
-                </button>
-              </h2>
+
+            <div className="mt-6 text-center text-white">
+              <p>
+                Already have an account?{" "}
+                <Link to="/login" className="text-[#DA4A54] hover:underline">
+                  Login
+                </Link>
+              </p>
             </div>
           </div>
         </div>
