@@ -240,4 +240,69 @@ export const BooksInfo = [
     description:
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
   },
+  {
+    id: bookeighteen,
+    title: "ভূতগুলো সব ভয় দেখায়",
+    image: "../../../public/image/Bhutgulo-Sob-Bhoy-Dekhay.jpg.webp",
+    subTitle: "BY Showjonno Chakrabarty",
+    price: 650,
+    discountPrice: 380,
+    Available: 4,
+    rating: 3.5,
+    genre: "Non-fiction",
+    description:
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+  },
+  {
+    "id": "booknineteen",
+    "title": "নানা রসের ৬টি উপন্যাস",
+    "image": "../../../public/image/Nana-raser-6ti-Upanyas.jpg.webp",
+    "subTitle": "সৈয়দ মুস্তাফা সিরাজ",
+    "price": 650,
+    "discountPrice": 380,
+    "Available": 7,
+    "rating": 4.5,
+    "genre": "Non-fiction",
+    "description":
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+  },
+  {
+    "id": "booktwnty",
+    "title": "বনের খবর ",
+    "image": "../../../public/image/Boner-Khobor.jpg.webp",
+    "subTitle": "প্রমদারঞ্জন রায়",
+    "price": 650,
+    "discountPrice": 550,
+    "Available": 7,
+    "rating": 3.5,
+    "genre": "Non-fiction",
+    "description":
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+  },
+  {
+    "id": "booktwntyone",
+    "title": "পিরানদেল্লোর গল্প",
+    "image": "../../../public/image/PIRANDELLO-R-GALPA.jpg.webp",
+    "subTitle": "বুদ্ধদেব বসু",
+    "price": 750,
+    "discountPrice": 650,
+    "Available": 7,
+    "rating": 4.5,
+    "genre": "Historical Fiction",
+    "description":
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+  },
+  {
+    "id": "booktwntytwo",
+    "title": "রহস্যের ধারাপাত",
+    "image": "../../../public/image/Rahasyer-Dharapat.jpg.webp",
+    "subTitle": "ইন্দ্রনীল সান্যাল",
+    "price": 750,
+    "discountPrice": 450,
+    "Available": 2,
+    "rating": 5,
+    "genre": "Historical Fiction",
+    "description":
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+  },
 ];
