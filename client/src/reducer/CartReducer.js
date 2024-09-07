@@ -4,7 +4,7 @@ export default function CartReducer(state, action) {
   if (action.type === "ADD_TO_CART") {
     let { id, amount, title, price, product } = action.payload;
 
-    let existingProduct = state.cart.find((curItem) => {
+    let existingProduct = state?.cart?.find((curItem) => {
       curItem.id == id;
     });
 
@@ -61,7 +61,7 @@ export default function CartReducer(state, action) {
   }
 
   if (action.type === "CART_TOTAL_ITEM") {
-    let updatedItemVal = state.cart.reduce((initialVal, curElem) => {
+    let updatedItemVal = state?.cart?.reduce((initialVal, curElem) => {
       let { amount } = curElem;
 
       initialVal = initialVal + amount;

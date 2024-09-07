@@ -20,46 +20,55 @@ const filterReducer = (state, action) => {
       };
 
     case "GET_SORT_VALUE":
-      let userSortValue = document.getElementById("sort");
-      let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
-      console.log(sort_value);
+      // let userSortValue = document.getElementById("sort");
+      // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
 
       return {
         ...state,
-        sorting_value: sort_value,
+        sorting_value: action.payload,
       };
 
     case "SORTING_PRODUCTS":
       let newSortData;
-      let temSortProduct = [...action.payload];
+      // let tempSortProduct = [...action.payload];
 
-      if (state.sorting_value === "lowest") {
-        const sortingProducts = (a, b) => {
+      const { filter_products, sorting_value } = state;
+      let tempSortProduct = [...filter_products];
+
+      const sortingProducts = (a, b) => {
+        if (sorting_value === "lowest") {
           return a.price - b.price;
-        };
-        newSortData = temSortProduct.sort(sortingProducts);
-      }
-      if (state.sorting_value === "highest") {
-        const sortingProducts = (a, b) => {
-          return b.price - a.price;
-        };
-        newSortData = temSortProduct.sort(sortingProducts);
-      }
+        }
 
-      if (state.sorting_value === "a-z") {
-        newSortData = temSortProduct.sort((a, b) => {
+        if (sorting_value === "highest") {
+          return b.price - a.price;
+        }
+
+        if (sorting_value === "a-z") {
           return a.title.localeCompare(b.title);
-        });
-      }
-      if (state.sorting_value === "z-a") {
-        newSortData = temSortProduct.sort((a, b) => {
+        }
+
+        if (sorting_value === "z-a") {
           return b.title.localeCompare(a.title);
-        });
-      }
+        }
+      };
+
+      newSortData = tempSortProduct.sort(sortingProducts);
 
       return {
         ...state,
         filter_products: newSortData,
+      };
+
+    case " UPDATE_FILTERS_VALUE":
+      const { title, value } = action.payload;
+
+      return {
+        ...state,
+        filters : {
+          ...state.filters,
+          [title] : value
+        }
       };
 
     default:

@@ -12,7 +12,7 @@ export default function Cart() {
 
   const { isLoggedIn } = useAuth();
 
-  if (cart.length === 0) {
+  if (cart?.length === 0) {
     return (
       <div className="h-[15rem] flex justify-center items-center">
         <h2 className="text-[25px]">No Cart in Item Page❗</h2>
@@ -48,7 +48,7 @@ export default function Cart() {
                   </th>
                 </tr>
               </thead>
-              {cart.map((value, index) => {
+              {cart?.map((value, index) => {
                 return <CartItem key={index} value={value} />;
               })}
             </table>

@@ -2,7 +2,11 @@
 import { useFilterContext } from "../context/FilterContext";
 
 export default function FilterSection() {
-  const { all_products } = useFilterContext();
+  const {
+    all_products,
+    filters: { text },
+    updateFilterValue,
+  } = useFilterContext();
 
   const getUniqueData = (data, property) => {
     let newVal = data.map((curElem) => {
@@ -16,8 +20,18 @@ export default function FilterSection() {
   return (
     <>
       <div>
-        {/* <h2 className="text-[20px]">Searching..</h2> */}
-        <div className="pt-[5rem] sticky">
+        <form onClick={(e) => e.preventDefault()}>
+          <input
+            type="text"
+            name="text"
+            value={text}
+            onChange={updateFilterValue}
+            placeholder="Search..."
+            className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </form>
+
+        <div className="pt-[3rem] sticky">
           <h3 className="text-[20px] font-semibold my-3 text-white ">
             Category
           </h3>

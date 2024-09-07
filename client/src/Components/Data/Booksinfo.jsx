@@ -305,4 +305,17 @@ export const BooksInfo = [
     "description":
       "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
   },
+  {
+    "id": "booktwntythree",
+    "title": "রহস্যের ধারাপাত",
+    "image": "../../../public/image/Rahasyer-Dharapat.jpg.webp",
+    "subTitle": "ইন্দ্রনীল সান্যাল",
+    "price": 450,
+    "discountPrice": 350,
+    "Available": 2,
+    "rating": 5,
+    "genre": "Non-fiction",
+    "description":
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+  },
 ];
