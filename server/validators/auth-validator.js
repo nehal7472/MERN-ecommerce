@@ -7,13 +7,13 @@ const loginSchema = z.object({
     .email({ message: "Invalid email address" })
     .min(3, { message: "email must be at lest of 3 chars" })
     .max(255, { message: "email must be at lest of 255 chars" })
-    .regex(/^(cse|eee|bba)-\d{10}@lus\.ac\.bd$/, {
-      message: "Email should be CSE|EEE|BBA-1234567890@lus.ac.bd",
+    .regex(/^(cse|eee|bba)_\d{10}@lus\.ac\.bd$/, {
+      message: "Email should be cse|eee|bba_1234567890@lus.ac.bd",
     }),
 
   password: z
     .string({ required_error: "password is required" })
-    .min(8, { message: "password must be at lest of 6 chars" })
+    .min(8, { message: "password must be at lest of 8 chars" })
     .max(1024, { message: "password must be at lest of 1024 chars" })
     .regex(/(?=.*[!@#$%^&*()_+{}\[\]:;"'<>,.?~`])/, {
       message: "Password must contain at least one special character.",
@@ -26,6 +26,9 @@ const signupSchema = loginSchema.extend({
   username: z
     .string({ required_error: "Name is required" })
     .trim()
+    .regex(/^[a-zA-Z\s]+$/, {
+      message: "Username must only contain alphabetic characters and spaces.",
+    })
     .min(3, { message: "name must be at lest of 3 chars" })
     .max(255, { message: "name must be at lest of 255 chars" }),
   phone: z

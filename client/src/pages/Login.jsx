@@ -4,7 +4,6 @@ import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
-
 const URL = "http://localhost:5000/api/auth/login";
 
 export default function Login() {
